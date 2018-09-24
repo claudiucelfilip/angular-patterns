@@ -1,0 +1,11 @@
+<edit-columns [table]="tableStore" [columns]="state.columns"></edit-columns>
+<table class="table table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <ng-container *ngTemplateOutlet="tHeadTemplate; context: state"></ng-container>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngTemplateOutlet="tBodyTemplate; context: state"></ng-container>
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+<!-- Example single danger button -->
+<div class="btn-group float-right">
+    <button type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+        Edit Columns
+    </button>
+    <div class="dropdown-menu">
+        <div class="dropdown-item"
+            (click)="doNothing($event)"
+             *ngFor="let column of columns, let i = index">
+            <div class="form-check">
+                <label class="form-check-label" [for]="getCheckboxId(index, column)">
+                <input class="form-check-input" type="checkbox"
+                    [id]="getCheckboxId(index, column)"
+                    (change)="onChange($event, column)"
+                    [checked]="tableStore.columns[column] !== false">
+                    {{column | map}}
+                </label>
+            </div>
+        </div>
+
+
+    </div>
+</div>
