@@ -10,36 +10,19 @@
     <music-table 
         tableKey="first-table"
         [tracks]="songs.tracks">
-      <ng-template #thead let-columns="filteredColumns">
+      <ng-container *tHead="let columns=filteredColumns">
         <th *ngFor="let column of columns | mapper: columnNameMappings">
           {{column}}
         </th>
-      </ng-template>
-      <ng-template #tbody let-tracks="tracks" let-columns="filteredColumns">
+      </ng-container>
+      <ng-container *tBody="let tracks = tracks; let columns=filteredColumns">
         <tr *ngFor="let track of tracks">
           <td *ngFor="let column of columns | mapper: mapTrackValue(track)">
             <ng-container *ngComponentOutlet="column.component, content: [column.value]">
             </ng-container>
           </td>
         </tr>
-      </ng-template>
-    </music-table>
-    <music-table 
-        tableKey="second-table"
-        [tracks]="songs.tracks">
-      <ng-template #thead let-columns="filteredColumns">
-        <th *ngFor="let column of columns | mapper: columnNameMappings">
-          {{column}}
-        </th>
-      </ng-template>
-      <ng-template #tbody let-tracks="tracks" let-columns="filteredColumns">
-        <tr *ngFor="let track of tracks">
-          <td *ngFor="let column of columns | mapper: mapTrackValue(track)">
-            <ng-container *ngComponentOutlet="column.component, content: [column.value]">
-            </ng-container>
-          </td>
-        </tr>
-      </ng-template>
+      </ng-container>
     </music-table>
   </div>
 </div>

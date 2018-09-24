@@ -19,6 +19,7 @@ import { MapperPipe } from './shared/mapper.pipe';
 import { MapPipe } from './shared/map.pipe';
 import { HttpModule } from '@angular/http';
 import { TheadDirective } from './shared/thead.directive';
+import { TbodyDirective } from './shared/tbody.directive';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     MusicControlsComponent,
     BasicComponent,
     TheadDirective,
+    TbodyDirective,
     MapperPipe,
     MapPipe
   ],

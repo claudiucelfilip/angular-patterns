@@ -1,5 +1,8 @@
-import { Component, Input, OnInit, OnChanges, ViewChild, ContentChild, TemplateRef, ElementRef, Inject } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, ViewChild, ContentChild, TemplateRef, ElementRef, Inject, AfterContentInit } from '@angular/core';
 import { tap, filter, withLatestFrom } from 'rxjs/operators';
+import { TheadDirective } from '../shared/thead.directive';
+import { TbodyDirective } from '../shared/tbody.directive';
+
 import { TableServiceFactory, TableService } from '../shared/table.service';
 import { restrictedColumns, filterRestrictedColumns } from '../shared/column.utils';
 
@@ -11,7 +14,7 @@ import { restrictedColumns, filterRestrictedColumns } from '../shared/column.uti
         useFactory: TableServiceFactory
     }]
 })
-export class TableComponent implements OnInit, OnChanges {
+export class TableComponent implements OnInit, OnChanges, AfterContentInit {
     @Input('tracks') $tracks;
     state = {
         tracks: [],
@@ -22,12 +25,16 @@ export class TableComponent implements OnInit, OnChanges {
     tableStore: TableService;
     @Input() tableKey;
 
-    @ContentChild('thead') tHeadTemplate: TemplateRef<any>;
-    @ContentChild('tbody') tBodyTemplate: TemplateRef<any>;
+    @ContentChild(TheadDirective, {read: TemplateRef}) tHeadTemplate;
+    @ContentChild(TbodyDirective, {read: TemplateRef}) tBodyTemplate;
 
     constructor(@Inject(TableServiceFactory) private tableServiceFactory) {}
-
+    ngAfterContentInit() {
+        console.log(this.tHeadTemplate);
+        console.log(this.tBodyTemplate);
+    }
     ngOnInit() {
+        
         this.tableStore = new this.tableServiceFactory(this.tableKey);
         this.$tracks
             .pipe(withLatestFrom(this.tableStore.restrictedColumns))

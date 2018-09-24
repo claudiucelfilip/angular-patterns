@@ -1,8 +1,8 @@
 import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
-    selector: '[tHead]'
+    selector: '[tBody]'
 })
-export class TheadDirective {
+export class TbodyDirective {
     constructor() {}
 }
