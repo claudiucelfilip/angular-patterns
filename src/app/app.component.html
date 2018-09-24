@@ -8,6 +8,7 @@
       <other></other>
     </div>
     <music-table 
+        resource="music-table-1"
         tableKey="first-table"
         [tracks]="songs.tracks">
       <ng-container *tHead="let columns=filteredColumns">
@@ -24,5 +25,7 @@
         </tr>
       </ng-container>
     </music-table>
+    <logger resource="music-table-1"></logger>
+    <column-forcer resource="music-table-1"></column-forcer>
   </div>
 </div>

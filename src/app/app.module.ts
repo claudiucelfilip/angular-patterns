@@ -18,10 +18,12 @@ import { BasicComponent } from './components/basic.component';
 import { MapperPipe } from './shared/mapper.pipe';
 import { MapPipe } from './shared/map.pipe';
 import { HttpModule } from '@angular/http';
+import { LoggerComponent } from './components/logger.component';
 import { TheadDirective } from './shared/thead.directive';
 import { TbodyDirective } from './shared/tbody.directive';
+import { ResourceDirective } from './shared/resource.directive';
 import { FormsModule } from '@angular/forms';
-
+import { ColumnForcerComponent } from './components/column-forcer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +37,12 @@ import { FormsModule } from '@angular/forms';
     TableComponent,
     EditColumnsComponent,
     MusicControlsComponent,
+    LoggerComponent,
     BasicComponent,
     TheadDirective,
     TbodyDirective,
+    ResourceDirective,
+    ColumnForcerComponent,
     MapperPipe,
     MapPipe
   ],
