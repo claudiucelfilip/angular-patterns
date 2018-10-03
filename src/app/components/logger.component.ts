@@ -1,19 +1,22 @@
-import { Component, Host } from '@angular/core';
-import { ResourceDirective } from '../shared/resource.directive';
+import { Component, OnInit, Inject,Self, Input } from '@angular/core';
+
 
 
 @Component({
     selector: 'logger',
     templateUrl: './logger.component.html'
 })
-export class LoggerComponent {
+export class LoggerComponent implements OnInit {
+    @Input('key') resource;
+    res;
     values = [];
-    constructor(@Host() private res: ResourceDirective) {
-
-    }
+    constructor(
+        @Inject('ResourceFactory') private resourceFactory
+    ){}
 
     ngOnInit() {
-        this.res.data.valueChanges.subscribe(values => {
+        this.res = this.resourceFactory(this.resource);
+        this.res.select().subscribe(values => {
             this.values = values;
         })
     }

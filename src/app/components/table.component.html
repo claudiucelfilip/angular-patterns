@@ -1,14 +1,12 @@
-<edit-columns 
-    [table]="tableStore" 
-    [columns]="state.columns">
+<edit-columns key="resource">
 </edit-columns>
 <table class="table table-sm">
     <thead class="thead-dark">
         <tr>
-            <ng-container *ngTemplateOutlet="tHeadTemplate; context: state"></ng-container>
+            <ng-container *ngTemplateOutlet="tHeadTemplate"></ng-container>
         </tr>
     </thead>
     <tbody>
-        <ng-container *ngTemplateOutlet="tBodyTemplate; context: state"></ng-container>
+        <ng-container *ngTemplateOutlet="tBodyTemplate"></ng-container>
     </tbody>
 </table>

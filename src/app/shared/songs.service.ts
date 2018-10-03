@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { observable, computed, action } from 'mobx';
+
 import { Http } from '@angular/http';
 import { Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, share } from 'rxjs/operators';
 
 interface SongsResponse {
     Tracks?: Array<any>
@@ -15,7 +15,10 @@ export class SongsService {
 
     constructor(private http: Http) {
         this.fetchSongs();
-        this.tracks = this.songs.pipe(map(res => res.Tracks));
+        this.tracks = this.songs.pipe(
+            map(res => res.Tracks),
+            share()
+        );
     }
 
     fetchSongs () {

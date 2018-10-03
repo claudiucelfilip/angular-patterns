@@ -9,16 +9,16 @@ export class TableService {
 
     constructor(localStoreKey: string) {
         console.log('table', localStoreKey);
-        this.$columns = new ReplaySubject(1);
-        this.tableKey = localStoreKey;
-        this.columns = JSON.parse(localStorage[this.tableKey] || '{}');
-        this.$columns.next(this.columns);
+        // this.$columns = new ReplaySubject(1);
+        // this.tableKey = localStoreKey;
+        // this.columns = JSON.parse(localStorage[this.tableKey] || '{}');
+        // this.$columns.next(this.columns);
     }
 
     setColumn (key, value) {
-        this.columns[key] = value;
-        localStorage[this.tableKey] = JSON.stringify(this.columns);
-        this.$columns.next(this.columns);
+        // this.columns[key] = value;
+        // localStorage[this.tableKey] = JSON.stringify(this.columns);
+        // this.$columns.next(this.columns);
     }
 
 

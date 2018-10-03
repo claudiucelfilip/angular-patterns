@@ -1,31 +1,31 @@
-<div class="app" *mobxAutorun="{ dontDetach: true }">
-  <div class="container">
-    <div toggle="let checked">
-      <switch></switch>
-      <toggle-on>Toggle on</toggle-on>
-      <toggle-off>Toggle off</toggle-off>
-      <toggle-off>Toggle off 2</toggle-off>
-      <other></other>
-    </div>
-    <music-table 
-        resource="music-table-1"
-        tableKey="first-table"
-        [tracks]="songs.tracks">
-      <ng-container *tHead="let columns=filteredColumns">
-        <th *ngFor="let column of columns | mapper: columnNameMappings">
-          {{column}}
-        </th>
-      </ng-container>
-      <ng-container *tBody="let tracks = tracks; let columns=filteredColumns">
-        <tr *ngFor="let track of tracks">
-          <td *ngFor="let column of columns | mapper: mapTrackValue(track)">
-            <ng-container *ngComponentOutlet="column.component, content: [column.value]">
-            </ng-container>
-          </td>
-        </tr>
-      </ng-container>
-    </music-table>
-    <logger resource="music-table-1"></logger>
-    <column-forcer resource="music-table-1"></column-forcer>
-  </div>
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300"
+       alt="Angular Logo"
+       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank"
+         rel="noopener"
+         href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank"
+         rel="noopener"
+         href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank"
+         rel="noopener"
+         href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+
+<div *rrTest>
+  <button>alter!</button>
 </div>
