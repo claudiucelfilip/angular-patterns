@@ -6,18 +6,9 @@ import { Component, OnInit, Inject,Self, Input } from '@angular/core';
     selector: 'logger',
     templateUrl: './logger.component.html'
 })
-export class LoggerComponent implements OnInit {
-    @Input('key') resource;
-    res;
-    values = [];
-    constructor(
-        @Inject('ResourceFactory') private resourceFactory
-    ){}
-
-    ngOnInit() {
-        this.res = this.resourceFactory(this.resource);
-        this.res.select().subscribe(values => {
-            this.values = values;
-        })
+export class LoggerComponent {
+    @Input()
+    set target(target) {
+      target.subscribe(values => console.log('logger', values));
     }
 }

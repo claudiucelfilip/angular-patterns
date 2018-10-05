@@ -23,6 +23,8 @@
     "core-js": "^2.5.4",
     "mobx": "^5.1.0",
     "mobx-angular": "^3.0.1",
+    "ng-resource-store-app": "git+https://github.com/claudiucelfilip/ng-resource-store.git",
+    "resource-store": "git+https://github.com/claudiucelfilip/resource-store.git",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

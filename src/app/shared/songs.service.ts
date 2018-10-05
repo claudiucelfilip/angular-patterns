@@ -7,7 +7,9 @@ import { map, share } from 'rxjs/operators';
 interface SongsResponse {
     Tracks?: Array<any>
 }
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SongsService {
     songs: Subject<any> = new Subject<any>();
     state = 'pending';

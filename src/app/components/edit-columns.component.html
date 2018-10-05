@@ -5,19 +5,18 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
-        Edit Columns
+        Edit Columnss
     </button>
     <div class="dropdown-menu">
         <div class="dropdown-item"
-            (click)="doNothing($event)"
-             *ngFor="let column of columns$ | async, let i = index">
+             *ngFor="let column of filteredColumns | async, let i = index">
             <div class="form-check">
                 <label class="form-check-label" [for]="getCheckboxId(index, column)">
                 <input class="form-check-input" type="checkbox"
                     [id]="getCheckboxId(index, column)"
                     (change)="onChange($event, column)"
-                    >
-                    {{column | map}}
+                    [checked]="(restrictedColumns | async).indexOf(column) === -1">
+                    {{column}}
                 </label>
             </div>
         </div>
