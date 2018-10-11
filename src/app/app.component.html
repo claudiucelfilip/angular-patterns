@@ -1,7 +1,7 @@
 <div class="app">
   <div class="container">
 
-    <music-table *rsResource="let tracks=tracks, let columns=columns, let restrictedColumns=restrictedColumns from 'music-table-1'"
+  <music-table *rsResource="let tracks=tracks, let columns=columns, let restrictedColumns=restrictedColumns from 'music-table-1'"
     [restrictedColumns]="restrictedColumns"
     [tracks]="tracks"
     [columns]="columns">
@@ -12,9 +12,8 @@
       </ng-container>
       <ng-container *tBody="let columns=columns, let tracks=tracks">
         <tr *ngFor="let track of tracks | async">
-          <td *ngFor="let column of columns | async | mapper: mapTrackValue(track)">
-            <ng-container *ngComponentOutlet="column.component, content: [column.value]">
-            </ng-container>
+          <td *ngFor="let column of columns | async" >
+            <music-td [column]="column" [track]="track"></music-td>
           </td>
         </tr>
       </ng-container>
@@ -31,9 +30,8 @@
       </ng-container>
       <ng-container *tBody="let columns=columns, let tracks=tracks">
         <tr *ngFor="let track of tracks | async">
-          <td *ngFor="let column of columns | async | mapper: mapTrackValue(track)">
-            <ng-container *ngComponentOutlet="column.component, content: [column.value]">
-            </ng-container>
+          <td *ngFor="let column of columns | async">
+            <music-td [column]="column" [track]="track"></music-td>
           </td>
         </tr>
       </ng-container>

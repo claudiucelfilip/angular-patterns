@@ -1,0 +1,13 @@
+<ng-container [ngSwitch]="column">
+    <music-controls *ngSwitchCase="'MusicControls'"></music-controls>
+    <ng-container *ngSwitchCase="'Artist'">
+        {{ track[column] && track[column].name }}
+    </ng-container>
+    <ng-container *ngSwitchCase="'Album'">
+        {{ track[column] && track[column].Title }}
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        {{ track[column] }}
+    </ng-container>
+    <ng-content></ng-content>
+</ng-container>

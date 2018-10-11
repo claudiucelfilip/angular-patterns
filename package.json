@@ -1,6 +1,6 @@
 {
   "name": "angular-patterns",
-  "version": "0.0.0",
+  "version": "0.5.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,11 +20,11 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@claudiucelfilip/ng-resource-store": "^0.5.1",
+    "@claudiucelfilip/resource-store": "^0.5.1",
     "core-js": "^2.5.4",
     "mobx": "^5.1.0",
     "mobx-angular": "^3.0.1",
-    "ng-resource-store-app": "git+https://github.com/claudiucelfilip/ng-resource-store.git",
-    "resource-store": "git+https://github.com/claudiucelfilip/resource-store.git",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

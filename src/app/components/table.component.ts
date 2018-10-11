@@ -1,20 +1,13 @@
-import { Component, Input, OnInit, OnChanges, Host, Optional, ContentChild, TemplateRef, ElementRef, Inject, AfterContentInit, Self } from '@angular/core';
-import { tap, filter, withLatestFrom } from 'rxjs/operators';
+import { Component, Input, OnInit, ContentChild, TemplateRef } from '@angular/core';
 import { TheadDirective } from '../shared/thead.directive';
 import { TbodyDirective } from '../shared/tbody.directive';
-
-import { TableServiceFactory, TableService } from '../shared/table.service';
-import { restrictedColumns, filterRestrictedColumns } from '../shared/column.utils';
+import { filterRestrictedColumns } from '../shared/column.utils';
 import { map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'music-table',
-  templateUrl: './table.component.html',
-  providers: [{
-    provide: TableServiceFactory,
-    useFactory: TableServiceFactory
-  }]
+  templateUrl: './table.component.html'
 })
 export class TableComponent implements OnInit {
   @Input() columns;
