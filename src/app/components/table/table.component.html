@@ -1,0 +1,16 @@
+<div [ngClass]="{'loading': pending | async}">
+    <edit-columns
+        [restrictedColumns]="restrictedColumns"
+        [columns]="columns">
+    </edit-columns>
+    <table class="table table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <ng-container *ngTemplateOutlet="tHeadTemplate, context: context"></ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngTemplateOutlet="tBodyTemplate, context: context"></ng-container>
+        </tbody>
+    </table>
+</div>

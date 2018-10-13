@@ -26,4 +26,20 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
-  
+
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+.loading::after {
+  content: 'Loading';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.95);
+  text-align: center;
+  padding-top: 30px;
+}

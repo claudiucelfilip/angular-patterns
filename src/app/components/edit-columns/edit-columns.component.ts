@@ -1,6 +1,6 @@
 import { Component, Input, Inject, SimpleChanges, Host, Optional, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { TableService } from '../shared/table.service';
-import { filterRestrictedColumns, restrictedColumns} from '../shared/column.utils';
+import { TableService } from '../../shared/table.service';
+import { filterRestrictedColumns, restrictedColumns} from '../../shared/column.utils';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators'
 
