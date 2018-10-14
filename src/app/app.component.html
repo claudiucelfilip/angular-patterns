@@ -1,53 +1,59 @@
 <div class="app">
-  <div class="container">
-    <div *rsResource="let fields=fields, let tracks=Tracks, let musicSearch from 'music-search'">
-      <div *rsResource="let musicSearchFields from 'music-search-fields'">
+  <div class="container-fluid"
+       *rsResource="let fields=fields, let tracks=Tracks, let musicSearch from 'music-search'">
+    <div class="row">
+      <div class="col-12"
+           *rsResource="let musicSearchFields from 'music-search-fields'">
         <search *rsResource="let columns=columns from 'music-table-1'"
-          [tracks]="tracks"
-          [musicSearchFields]="musicSearchFields"
-          [musicSearch]="musicSearch"
-          [fields]="fields"></search>
+                [tracks]="tracks"
+                [musicSearchFields]="musicSearchFields"
+                [musicSearch]="musicSearch"
+                [fields]="fields"></search>
       </div>
-      
-      <music-table *rsResource="let columns=columns, let restrictedColumns=restrictedColumns from 'music-table-1'"
-                   [restrictedColumns]="restrictedColumns"
-                   [tracks]="tracks"
-                   [pending]="musicSearch.pending"
-                   [columns]="columns">
-        <ng-container *tHead="let columns=columns">
-          <th *ngFor="let column of columns | async">
-            {{column}}
-          </th>
-        </ng-container>
-        <ng-container *tBody="let columns=columns, let tracks=tracks">
-          <tr *ngFor="let track of tracks | async">
-            <td *ngFor="let column of columns | async">
-              <music-td [column]="column"
-                        [track]="track"></music-td>
-            </td>
-          </tr>
-        </ng-container>
-      </music-table>
+      <div class="col-4">
+        <filters [fields]="fields" [facetes]="musicSearch.Facetes" ></filters>
+      </div>
+      <div class="col-8">
+        <music-table *rsResource="let columns=columns, let restrictedColumns=restrictedColumns from 'music-table-1'"
+                     [restrictedColumns]="restrictedColumns"
+                     [tracks]="tracks"
+                     [pending]="musicSearch.pending"
+                     [columns]="columns">
+          <ng-container *tHead="let columns=columns">
+            <th *ngFor="let column of columns | async">
+              {{column}}
+            </th>
+          </ng-container>
+          <ng-container *tBody="let columns=columns, let tracks=tracks">
+            <tr *ngFor="let track of tracks | async">
+              <td *ngFor="let column of columns | async">
+                <music-td [column]="column"
+                          [track]="track"></music-td>
+              </td>
+            </tr>
+          </ng-container>
+        </music-table>
 
-      <music-table *rsResource="let columns=columns, let restrictedColumns=restrictedColumns from 'music-table-2'"
-                   [restrictedColumns]="restrictedColumns"
-                   [tracks]="tracks"
-                   [pending]="musicSearch.pending"
-                   [columns]="columns">
-        <ng-container *tHead="let columns=columns">
-          <th *ngFor="let column of columns | async">
-            {{column}}
-          </th>
-        </ng-container>
-        <ng-container *tBody="let columns=columns, let tracks=tracks">
-          <tr *ngFor="let track of tracks | async">
-            <td *ngFor="let column of columns | async">
-              <music-td [column]="column"
-                        [track]="track"></music-td>
-            </td>
-          </tr>
-        </ng-container>
-      </music-table>
+        <music-table *rsResource="let columns=columns, let restrictedColumns=restrictedColumns from 'music-table-2'"
+                     [restrictedColumns]="restrictedColumns"
+                     [tracks]="tracks"
+                     [pending]="musicSearch.pending"
+                     [columns]="columns">
+          <ng-container *tHead="let columns=columns">
+            <th *ngFor="let column of columns | async">
+              {{column}}
+            </th>
+          </ng-container>
+          <ng-container *tBody="let columns=columns, let tracks=tracks">
+            <tr *ngFor="let track of tracks | async">
+              <td *ngFor="let column of columns | async">
+                <music-td [column]="column"
+                          [track]="track"></music-td>
+              </td>
+            </tr>
+          </ng-container>
+        </music-table>
+      </div>
 
       <logger *rsResource="let resource from 'music-table-1'"
               [target]="resource"></logger>

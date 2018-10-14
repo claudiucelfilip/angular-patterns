@@ -1,0 +1,5 @@
+<p *ngFor="let facet of facetes | async">
+  <dropdown [items]="facet.facetedFieldValue">
+    {{facet.name}}
+  </dropdown>
+</p>

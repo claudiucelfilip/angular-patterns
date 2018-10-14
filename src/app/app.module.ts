@@ -7,7 +7,7 @@ import { EditColumnsComponent } from './components/edit-columns/edit-columns.com
 import { SearchComponent } from './components/advanced-search/search.component';
 import { MapperPipe } from './shared/mapper.pipe';
 import { MapPipe } from './shared/map.pipe';
-
+import { FiltersComponent } from './components/filters/filters.component';
 import { TdComponent } from './components/table/td.component';
 import { LoggerComponent } from './components/logger.component';
 import { TbodyDirective } from './shared/tbody.directive';
@@ -92,6 +92,7 @@ const musicSearch = {
     MusicControlsComponent,
     EditColumnsComponent,
     SearchComponent,
+    FiltersComponent,
     TdComponent,
     MapperPipe,
     DropdownComponent,

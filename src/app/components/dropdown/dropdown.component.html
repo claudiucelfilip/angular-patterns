@@ -8,15 +8,16 @@
         <ng-content></ng-content>
     </button>
     <div class="dropdown-menu">
+        
         <div class="dropdown-item"
-             *ngFor="let item of items | async, let i = index">
+             *ngFor="let item of (items.value || items), let i = index">
             <div class="form-check">
                 <label class="form-check-label" [for]="getCheckboxId(index, item.text)">
                 <input class="form-check-input" type="checkbox"
                     [id]="getCheckboxId(index, item.text)"
                     (change)="onChangeHandler($event, item)"
                     [checked]="item.value">
-                    {{item.label || item.Name}}
+                    {{item.label || item.Name || item.display}}
                 </label>
             </div>
         </div>
