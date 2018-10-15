@@ -6,6 +6,7 @@ import { map, first, filter } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'music-table',
   templateUrl: './table.component.html'
 })
@@ -20,6 +21,7 @@ export class TableComponent implements OnInit {
   @ContentChild(TbodyDirective, { read: TemplateRef }) tBodyTemplate;
 
   ngOnInit () {
+
     this.context.columns = combineLatest(this.columns, this.restrictedColumns)
       .pipe(
         map(([columns, restrictedColumns]) => {
@@ -33,7 +35,7 @@ export class TableComponent implements OnInit {
       filter((tracks: any[]) => tracks.length !== 0),
       first()
     ).subscribe(tracks => {
-      let columns = Object.keys(tracks[0]);
+      const columns = Object.keys(tracks[0]);
       this.columns.next(columns);
     });
 

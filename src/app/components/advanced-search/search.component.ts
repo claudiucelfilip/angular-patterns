@@ -9,12 +9,9 @@ import { distinctUntilChanged, skip } from 'rxjs/operators';
 export class SearchComponent implements OnInit {
   @Input() musicSearch;
   @Input() musicSearchFields;
-  @Input() fields;
-  @Input() tracks;
-  @Input() columns;
 
   submit () {
-    this.musicSearch.fetch(this.fields.value)
+    this.musicSearch.fetch(this.musicSearch.fields.value)
       .catch((err) => {
         console.log(err);
       })
@@ -23,8 +20,8 @@ export class SearchComponent implements OnInit {
       });
 
     this.musicSearch.pending.next(true);
-    this.fields.next(Object.assign({}, this.fields.value, {
-      page: this.fields.value.page + 1
+    this.musicSearch.fields.next(Object.assign({}, this.musicSearch.fields.value, {
+      page: this.musicSearch.fields.value.page + 1
     }));
   }
 
@@ -42,10 +39,10 @@ export class SearchComponent implements OnInit {
               'Visible': true
             }));
 
-          var searchOptions = Object.assign({}, this.fields.value.searchOptions, {
+          var searchOptions = Object.assign({}, this.musicSearch.fields.value.searchOptions, {
             CountryAquisition: countryAquisition
           });
-          this.fields.next({ ...this.fields.value, searchOptions });
+          this.musicSearch.fields.next({ ...this.musicSearch.fields.value, searchOptions });
         }
 
         this.submit();

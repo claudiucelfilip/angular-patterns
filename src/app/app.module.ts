@@ -8,7 +8,7 @@ import { SearchComponent } from './components/advanced-search/search.component';
 import { MapperPipe } from './shared/mapper.pipe';
 import { MapPipe } from './shared/map.pipe';
 import { FiltersComponent } from './components/filters/filters.component';
-import { TdComponent } from './components/table/td.component';
+import { TdComponent } from './components/td/td.component';
 import { LoggerComponent } from './components/logger.component';
 import { TbodyDirective } from './shared/tbody.directive';
 import { TheadDirective } from './shared/thead.directive';
@@ -73,7 +73,8 @@ const musicSearch = {
       method: 'search',
       page: 1,
       pageSize: 3,
-      searchOptions: {"Catalogue":[],"Version":[],"LocalClient":[],"CountryAquisition":[],"Language":[],"RecordLabelGroup":[],"RecordLabel":[],"MusicControls":[],"OwnershipFrom":"","OwnershipTo":"","Divisions":[],"FirstReleasedFrom":"","FirstReleasedTo":"","AddedToLibraryFrom":"","AddedToLibraryTo":"","SelectedCharts":[],"ChartPeakPositionFrom":"","ChartPeakPositionTo":"","ChartYearFrom":"","ChartYearTo":"","SearchWithin":{"SongTitle":true,"AlbumTitle":false,"Artist":true,"Writer":true,"PIPSCode":true,"Lyrics":false,"SongNotes":false},"BPMFrom":1,"BPMTo":300,"LocalClientQuery":""},
+      // tslint:disable-next-line:max-line-length
+      searchOptions: { 'Catalogue': [], 'Version': [], 'LocalClient': [], 'CountryAquisition': [], 'Language': [], 'RecordLabelGroup': [], 'RecordLabel': [], 'MusicControls': [], 'OwnershipFrom': '', 'OwnershipTo': '', 'Divisions': [], 'FirstReleasedFrom': '', 'FirstReleasedTo': '', 'AddedToLibraryFrom': '', 'AddedToLibraryTo': '', 'SelectedCharts': [], 'ChartPeakPositionFrom': '', 'ChartPeakPositionTo': '', 'ChartYearFrom': '', 'ChartYearTo': '', 'SearchWithin': { 'SongTitle': true, 'AlbumTitle': false, 'Artist': true, 'Writer': true, 'PIPSCode': true, 'Lyrics': false, 'SongNotes': false }, 'BPMFrom': 1, 'BPMTo': 300, 'LocalClientQuery': '' },
       searchTerm: '',
       sortDir: 'desc',
       sortField: 'CreatedDate',

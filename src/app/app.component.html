@@ -1,24 +1,22 @@
 <div class="app">
   <div class="container-fluid"
-       *rsResource="let fields=fields, let tracks=Tracks, let musicSearch from 'music-search'">
+       *rsResource="let musicSearch from 'music-search'">
     <div class="row">
-      <div class="col-12"
-           *rsResource="let musicSearchFields from 'music-search-fields'">
-        <search *rsResource="let columns=columns from 'music-table-1'"
-                [tracks]="tracks"
+      <div class="col-12">
+        <search *rsResource="let musicSearchFields from 'music-search-fields'"
                 [musicSearchFields]="musicSearchFields"
-                [musicSearch]="musicSearch"
-                [fields]="fields"></search>
+                [musicSearch]="musicSearch"></search>
       </div>
       <div class="col-4">
-        <filters [fields]="fields" [facetes]="musicSearch.Facetes" ></filters>
+
+        <filters [fields]="musicSearch.fields" [facetes]="musicSearch.Facetes" ></filters>
       </div>
       <div class="col-8">
-        <music-table *rsResource="let columns=columns, let restrictedColumns=restrictedColumns from 'music-table-1'"
-                     [restrictedColumns]="restrictedColumns"
-                     [tracks]="tracks"
+        <music-table *rsResource="let musicTable1 from 'music-table-1'"
+                     [restrictedColumns]="musicTable1.restrictedColumns"
+                     [tracks]="musicSearch.Tracks"
                      [pending]="musicSearch.pending"
-                     [columns]="columns">
+                     [columns]="musicTable1.columns">
           <ng-container *tHead="let columns=columns">
             <th *ngFor="let column of columns | async">
               {{column}}
@@ -34,11 +32,11 @@
           </ng-container>
         </music-table>
 
-        <music-table *rsResource="let columns=columns, let restrictedColumns=restrictedColumns from 'music-table-2'"
-                     [restrictedColumns]="restrictedColumns"
-                     [tracks]="tracks"
+        <music-table *rsResource="let musicTable2 from 'music-table-2'"
+                     [restrictedColumns]="musicTable2.restrictedColumns"
+                     [tracks]="musicSearch.Tracks"
                      [pending]="musicSearch.pending"
-                     [columns]="columns">
+                     [columns]="musicTable2.columns">
           <ng-container *tHead="let columns=columns">
             <th *ngFor="let column of columns | async">
               {{column}}
@@ -55,8 +53,8 @@
         </music-table>
       </div>
 
-      <logger *rsResource="let resource from 'music-table-1'"
-              [target]="resource"></logger>
+      <logger *rsResource="let musicTable1 from 'music-table-1'"
+              [target]="musicTable1"></logger>
     </div>
   </div>
 </div>

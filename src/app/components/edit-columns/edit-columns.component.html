@@ -11,16 +11,14 @@
         <div class="dropdown-item"
              *ngFor="let column of filteredColumns | async, let i = index">
             <div class="form-check">
-                <label class="form-check-label" [for]="getCheckboxId(index, column)">
+                <label class="form-check-label" [for]="getCheckboxId(i, column)">
                 <input class="form-check-input" type="checkbox"
-                    [id]="getCheckboxId(index, column)"
+                    [id]="getCheckboxId(i, column)"
                     (change)="onChange($event, column)"
                     [checked]="(restrictedColumns | async).indexOf(column) === -1">
                     {{column}}
                 </label>
             </div>
         </div>
-
-
     </div>
 </div>
